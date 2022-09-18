@@ -13,7 +13,6 @@ let userChoice;
 let computerChoice;
 let computerScore=0;
 let userScore=0;
-let rounds=0
 
 posssibleChoices.forEach(posssibleChoice=>posssibleChoice.addEventListener('click',(e) =>{ 
 userChoice=e.target.id;
@@ -72,7 +71,6 @@ function generateResult(){
         computerScore++;
         resultDisplay.textContent=`You lost! You choose ${userChoice} and computer choose ${computerChoice}`;
       }
-      rounds++;
       computerChoiceDisplay.textContent=computerScore;
       userChoiceDisplay.textContent=userScore;
 
@@ -85,6 +83,7 @@ function generateResult(){
           popuptext.textContent='You win';
         }
         popup.style.display='inline-block';
+        container.style.filter='blur(5px) brightness(0.5)';
       }
 }
 //When we click on the Play again button it will refresh the page
@@ -97,4 +96,5 @@ reload.addEventListener('click',()=>{
   userChoiceDisplay.textContent=userScore;
   resultDisplay.textContent="";
   popup.style.display='none';
+  container.style.filter='none';
 })
