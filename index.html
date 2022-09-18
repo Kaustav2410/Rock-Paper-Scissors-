@@ -8,17 +8,34 @@
     <link rel="stylesheet" href="index.css">
     <script defer src="index.js"></script>
 </head>
-<body>
-    <div class="container">
+<body >
+    <div id="container">
     <h1 class="heading">Rock Paper Scissors </h1>
-    <h2>Computer-choice:-<span id="computer-choice"></span></h2>
-    <h2 >User-choice:-<span id="user-choice"></span></h2>
-
-    <button class="button" id="rock">Rock</button>
-    <button class="button" id="paper">Paper</button>
-    <button class="button" id="scissors">Scissors</button>
-
-    <h2>Result:-<span id="result"></span></h2>
+    <div class="score">
+        <div >
+            <h2>Computer-Score <p id="computer-choice">0</p></h2>
+        </div>
+        <div>
+            <h2 >User-Score <p id="user-choice">0</p></h2>
+        </div>
     </div>
+
+    <div class="choice">
+        <button class="button" id="rock">Rock</button>
+        <button class="button" id="paper">Paper</button>
+        <button class="button" id="scissors">Scissors</button>
+    </div>
+
+    <div class="reloads">
+        <h2>Result</h2>
+        <h2><span id="result"></span></h2>
+    </div>
+    </div>
+
+    <div id="popup">
+        <h2 id="popup-heading"></h2>
+        <button id="reload-button" >Play Again</button>
+    </div>
+
 </body>
 </html>

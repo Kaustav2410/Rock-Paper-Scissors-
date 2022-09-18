@@ -1,6 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@600&family=Figtree:wght@600&display=swap');
 *{
     margin: 0%;
     padding: 0%;
     box-sizing: border-box;
     text-align: center;
+    position:relative;
+    font-family: 'Figtree', sans-serif;
+}
+body{
+    background-image: radial-gradient(circle, #e35ea9, #d160b8, #ba64c5, #9f69cf, #7d6ed6, #637de2, #428bea, #0097ee, #00aff5, #00c4f3, #00d8ea, #49e9df);
+}
+#container{
+    height: 100vh;
+}
+.heading{
+    padding: 2rem 0rem;
+    font-size: 3rem;
+}
+.score{
+    padding: 5rem 0rem;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.choice{
+    padding: 2rem 0rem;
+}
+.button{
+    padding: 2rem 4rem;
+    border-radius: 12px;
+    margin: 0rem 1rem;
+    font-size: 2rem;
+}
+.reloads{
+    padding: 2rem 0rem;
+    font-size: 2rem;
+}
+#popup{
+    display: none;
+    width: 50rem;
+    height: 20rem;
+    background-color: rgb(156, 69, 244);
+    color: #fff;
+    position:absolute;
+    z-Index:31;
+    padding:2rem 0rem;
+    top: 30%;
+    right: 30%;
+    border-radius: 2rem;
+    font-size: 2rem;
+}
+#reload-button{
+    padding: 2rem 4rem;
+    border-radius: 12px;
+    margin: 0rem 1rem;
+    font-size: 2rem;
 }

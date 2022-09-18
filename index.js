@@ -4,13 +4,21 @@ const resultDisplay= document.getElementById('result');
 
 const posssibleChoices=document.querySelectorAll('.button');
 
+const reload = document.getElementById('reload-button');
+
+const popup = document.getElementById('popup');
+const popuptext = document.getElementById('popup-heading');
+const container = document.getElementById('container');
 let userChoice;
 let computerChoice;
+let computerScore=0;
+let userScore=0;
+let rounds=0
+
 posssibleChoices.forEach(posssibleChoice=>posssibleChoice.addEventListener('click',(e) =>{ 
-userChoice=e.target.id
-userChoiceDisplay.innerHTML=userChoice;
-generateComputerChoice();
-generateResult();
+userChoice=e.target.id;
+  generateComputerChoice();
+  generateResult();
 }))
 
 function generateComputerChoice(){
@@ -33,36 +41,60 @@ function generateComputerChoice(){
     if(randomNumber===3){
         computerChoice='paper';   
     }
-    computerChoiceDisplay.innerHTML=computerChoice;
-
 }
 
 function generateResult(){
 
-    let result;
-
     if(computerChoice===userChoice){
-        result="It's a draw";
+        resultDisplay.textContent=`It's a draw! You choose ${userChoice} and computer choose ${computerChoice}`;
     }
     if (computerChoice === 'rock' && userChoice === "paper") {
-        result = 'you win!';
+        userScore++;
+        resultDisplay.textContent=`You won ! You choose ${userChoice} and computer choose ${computerChoice}`;
       }
       if (computerChoice === "rock" && userChoice === "scissors") {
-        result = 'you lost!';
+        computerScore++;
+        resultDisplay.textContent=`You lost ! You choose ${userChoice} and computer choose ${computerChoice}`;
       }
       if (computerChoice === "paper" && userChoice === "scissors") {
-        result = 'you win!';
+        userScore++;
+        resultDisplay.textContent=`You won! You choose ${userChoice} and computer choose ${computerChoice}`;
       }
       if (computerChoice === "paper" && userChoice === "rock") {
-        result = 'you lose!';
+        computerScore++;
+        resultDisplay.textContent=`You lost! You choose ${userChoice} and computer choose ${computerChoice}`;
       }
       if (computerChoice === "scissors" && userChoice === "rock") {
-        result = 'you win!';
+        userScore++;
+        resultDisplay.textContent=`You won! You choose ${userChoice} and computer choose ${computerChoice}`;
       }
       if (computerChoice === "scissors" && userChoice === "paper") {
-        result = 'you lose!';
+        computerScore++;
+        resultDisplay.textContent=`You lost! You choose ${userChoice} and computer choose ${computerChoice}`;
       }
-      resultDisplay.textContent = result
+      rounds++;
+      computerChoiceDisplay.textContent=computerScore;
+      userChoiceDisplay.textContent=userScore;
 
-
+      console.log()
+      if(computerScore === 5 || userScore === 5){
+        if(computerScore===5){
+          popuptext.textContent='You lose';
+        }
+        else {
+          popuptext.textContent='You win';
+        }
+        popup.style.display='inline-block';
+      }
 }
+//When we click on the Play again button it will refresh the page
+reload.addEventListener('click',()=>{
+  userChoice=null;
+  computerChoice=null;
+  userScore=0;
+  computerScore=0;
+  computerChoiceDisplay.textContent=computerScore;
+  userChoiceDisplay.textContent=userScore;
+  resultDisplay.textContent="";
+  popup.style.display='none';
+})
